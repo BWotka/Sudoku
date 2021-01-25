@@ -98,7 +98,6 @@ class Sudoku
   //Lösungsalgorithmus
    public boolean backtracking(int zeile, int spalte)
   {
-    System.out.println("Spalte: "+spalte+" Zeile: "+zeile);
     if (getZahl(spalte,zeile) != 0){
       int neuspalte = spalte+1;
       int neuzeile = zeile;
@@ -134,7 +133,7 @@ class Sudoku
         // welche zeile jetzt
         int neuspalte = spalte+1;
         int neuzeile = zeile;
-        if(neuspalte >= 8){
+        if(neuspalte > 8){
           neuspalte = 0;
           neuzeile++;
         }
@@ -142,6 +141,7 @@ class Sudoku
           System.out.println("Finale Lösung");
           System.out.println("Spalte: "+spalte+" Zeile: "+zeile);
           System.out.println("Zahl: "+moeglich.getContent());
+          print();
           return true;
         }
 
@@ -150,6 +150,7 @@ class Sudoku
         }
         else{
           setZahl(0, spalte, zeile);
+          moeglich.next();
         }
 
       }
@@ -157,4 +158,12 @@ class Sudoku
    }
 
 
+   public void print(){
+     for(int ix=0; ix < 9; ix++){
+       for(int iy=0; iy < 9; iy++){
+         System.out.print(spielfeld[iy][ix]+"\t");
+       }
+       System.out.println("");
+     }
+   }
  }

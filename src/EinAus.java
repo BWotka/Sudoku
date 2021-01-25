@@ -75,7 +75,7 @@ public class EinAus extends JFrame implements ActionListener
          {
            for (int i = 0; i < 9;i++)
            {
-             feld[i][j].setText ("    "+hSudoku.getZahl(i,j));
+             feld[i][j].setText (""+hSudoku.getZahl(i,j));
            }
          }
        }
